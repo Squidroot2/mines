@@ -1,0 +1,196 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://game/Game.gd" type="Script" id=1]
+[ext_resource path="res://game/GameTimer/GameTimer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/mine.png" type="Texture" id=3]
+[ext_resource path="res://ui/Resources/MainTheme.tres" type="Theme" id=4]
+[ext_resource path="res://ui/Resources/SensitiveTextFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://game/sounds/244976__ani-music__wing-flap-flag-flapping-4a.wav" type="AudioStream" id=6]
+[ext_resource path="res://game/sounds/184647__isaac200000__cannon4.wav" type="AudioStream" id=7]
+[ext_resource path="res://game/sounds/Digging-with-shovel-chopped.wav" type="AudioStream" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.47451, 0.470588, 0.470588, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 6
+
+[node name="Game" type="PanelContainer"]
+margin_left = 372.0
+margin_top = 346.0
+margin_right = 907.0
+margin_bottom = 453.0
+theme = ExtResource( 4 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 533.0
+margin_bottom = 137.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 1
+
+[node name="GameUIRows" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 521.0
+margin_bottom = 134.0
+
+[node name="GameDescriptionPanel" type="PanelContainer" parent="MarginContainer/GameUIRows"]
+margin_right = 511.0
+margin_bottom = 52.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GameUIRows/GameDescriptionPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 509.0
+margin_bottom = 50.0
+custom_constants/margin_top = 2
+custom_constants/margin_bottom = 2
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/GameUIRows/GameDescriptionPanel/MarginContainer"]
+margin_top = 2.0
+margin_right = 507.0
+margin_bottom = 46.0
+
+[node name="PresetDescription" type="Label" parent="MarginContainer/GameUIRows/GameDescriptionPanel/MarginContainer/Rows"]
+margin_right = 507.0
+margin_bottom = 20.0
+text = "Easy (9,9, 10 mines)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeedName" type="Label" parent="MarginContainer/GameUIRows/GameDescriptionPanel/MarginContainer/Rows"]
+margin_top = 24.0
+margin_right = 507.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 5 )
+text = "\"SeedName\""
+align = 1
+
+[node name="TopHud" type="HBoxContainer" parent="MarginContainer/GameUIRows"]
+margin_top = 56.0
+margin_right = 511.0
+margin_bottom = 90.0
+alignment = 1
+
+[node name="TimerContainer" type="PanelContainer" parent="MarginContainer/GameUIRows/TopHud"]
+margin_left = 96.0
+margin_right = 156.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 60, 0 )
+size_flags_horizontal = 6
+
+[node name="Timer" parent="MarginContainer/GameUIRows/TopHud/TimerContainer" instance=ExtResource( 2 )]
+margin_left = 2.0
+margin_top = 7.0
+margin_right = 58.0
+margin_bottom = 27.0
+
+[node name="MineCountContainer" type="PanelContainer" parent="MarginContainer/GameUIRows/TopHud"]
+margin_left = 345.0
+margin_right = 423.0
+margin_bottom = 34.0
+grow_horizontal = 0
+size_flags_horizontal = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GameUIRows/TopHud/MineCountContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 76.0
+margin_bottom = 32.0
+custom_constants/margin_right = 5
+custom_constants/margin_left = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GameUIRows/TopHud/MineCountContainer/MarginContainer"]
+margin_right = 69.0
+margin_bottom = 30.0
+size_flags_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GameUIRows/TopHud/MineCountContainer/MarginContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 40, 30 )
+rect_clip_content = true
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="MineCountLabel" type="Label" parent="MarginContainer/GameUIRows/TopHud/MineCountContainer/MarginContainer/HBoxContainer"]
+margin_left = 44.0
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 25.0
+text = "099"
+
+[node name="MinefieldContainer" type="CenterContainer" parent="MarginContainer/GameUIRows"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 94.0
+margin_right = 511.0
+margin_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BottomHud" type="HBoxContainer" parent="MarginContainer/GameUIRows"]
+margin_top = 98.0
+margin_right = 511.0
+margin_bottom = 124.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="MarginContainer/GameUIRows/BottomHud"]
+margin_right = 167.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+text = "Reset this Minefield"
+
+[node name="RestartButton" type="Button" parent="MarginContainer/GameUIRows/BottomHud"]
+margin_left = 171.0
+margin_right = 339.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 158, 0 )
+size_flags_horizontal = 3
+text = "New Random Seed"
+
+[node name="MenuButton" type="Button" parent="MarginContainer/GameUIRows/BottomHud"]
+margin_left = 343.0
+margin_right = 511.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 158, 0 )
+size_flags_horizontal = 3
+text = "Back to Menu"
+
+[node name="DigAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="FlagAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="ExplosionAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="pressed" from="MarginContainer/GameUIRows/BottomHud/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="MarginContainer/GameUIRows/BottomHud/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="MarginContainer/GameUIRows/BottomHud/MenuButton" to="." method="_on_MenuButton_pressed"]

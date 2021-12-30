@@ -1,0 +1,2679 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/Game.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/mine.png" type="Texture" id=2]
+[ext_resource path="res://game/GameTimer/GameTimer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cell/Cell.tscn" type="PackedScene" id=4]
+[ext_resource path="res://minefield/Minefield.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.184314, 0.184314, 0.184314, 1 )
+
+[node name="PanelContainer" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 800.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameUIRows" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 448.0
+margin_top = 98.0
+margin_right = 832.0
+margin_bottom = 702.0
+
+[node name="GameDescriptionPanel" type="PanelContainer" parent="CenterContainer/GameUIRows"]
+margin_right = 384.0
+margin_bottom = 46.0
+
+[node name="Rows" type="VBoxContainer" parent="CenterContainer/GameUIRows/GameDescriptionPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 377.0
+margin_bottom = 39.0
+
+[node name="PresetDescription" type="Label" parent="CenterContainer/GameUIRows/GameDescriptionPanel/Rows"]
+margin_right = 370.0
+margin_bottom = 14.0
+text = "EPIC (52x28, 365 mines)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeedName" type="Label" parent="CenterContainer/GameUIRows/GameDescriptionPanel/Rows"]
+margin_top = 18.0
+margin_right = 370.0
+margin_bottom = 32.0
+text = "\"mines\""
+align = 1
+
+[node name="TopHud" type="HBoxContainer" parent="CenterContainer/GameUIRows"]
+margin_top = 50.0
+margin_right = 384.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="TimerContainer" type="PanelContainer" parent="CenterContainer/GameUIRows/TopHud"]
+margin_left = 148.0
+margin_right = 186.0
+margin_bottom = 46.0
+
+[node name="Timer" parent="CenterContainer/GameUIRows/TopHud/TimerContainer" instance=ExtResource( 3 )]
+text = "018"
+
+[node name="MineCountContainer" type="PanelContainer" parent="CenterContainer/GameUIRows/TopHud"]
+margin_left = 190.0
+margin_right = 236.0
+margin_bottom = 46.0
+
+[node name="MineCountLabel" type="Label" parent="CenterContainer/GameUIRows/TopHud/MineCountContainer"]
+margin_left = 7.0
+margin_top = 16.0
+margin_right = 39.0
+margin_bottom = 30.0
+text = "363"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GameUIRows/TopHud/MineCountContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 39.0
+margin_bottom = 39.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/GameUIRows/TopHud/MineCountContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="MinefieldContainer" type="CenterContainer" parent="CenterContainer/GameUIRows"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 100.0
+margin_right = 384.0
+margin_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Minefield" parent="CenterContainer/GameUIRows/MinefieldContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 384.0
+margin_bottom = 480.0
+columns = 16
+
+[node name="Cell" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="Cell2" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_right = 48.0
+margin_bottom = 24.0
+
+[node name="Cell3" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_right = 72.0
+margin_bottom = 24.0
+
+[node name="Cell4" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 96.0
+margin_bottom = 24.0
+
+[node name="Cell5" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 24.0
+
+[node name="Cell6" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_right = 144.0
+margin_bottom = 24.0
+
+[node name="Cell7" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_right = 168.0
+margin_bottom = 24.0
+
+[node name="Cell8" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_right = 192.0
+margin_bottom = 24.0
+
+[node name="Cell9" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_right = 216.0
+margin_bottom = 24.0
+
+[node name="Cell10" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_right = 240.0
+margin_bottom = 24.0
+
+[node name="Cell11" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_right = 264.0
+margin_bottom = 24.0
+
+[node name="Cell12" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_right = 288.0
+margin_bottom = 24.0
+
+[node name="Cell13" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_right = 312.0
+margin_bottom = 24.0
+
+[node name="Cell14" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_right = 336.0
+margin_bottom = 24.0
+
+[node name="Cell15" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_right = 360.0
+margin_bottom = 24.0
+
+[node name="Cell16" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_right = 384.0
+margin_bottom = 24.0
+
+[node name="Cell17" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 24.0
+margin_bottom = 48.0
+
+[node name="Cell18" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 48.0
+margin_bottom = 48.0
+
+[node name="Cell19" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 48.0
+
+[node name="Cell20" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 24.0
+margin_right = 96.0
+margin_bottom = 48.0
+
+[node name="Cell21" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 48.0
+
+[node name="Cell22" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 24.0
+margin_right = 144.0
+margin_bottom = 48.0
+disabled = true
+
+[node name="Cell23" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 24.0
+margin_right = 168.0
+margin_bottom = 48.0
+disabled = true
+
+[node name="Cell24" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 48.0
+pressed = true
+
+[node name="Cell25" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 24.0
+margin_right = 216.0
+margin_bottom = 48.0
+
+[node name="Cell26" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 48.0
+
+[node name="Cell27" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 24.0
+margin_right = 264.0
+margin_bottom = 48.0
+
+[node name="Cell28" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 24.0
+margin_right = 288.0
+margin_bottom = 48.0
+
+[node name="Cell29" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 24.0
+margin_right = 312.0
+margin_bottom = 48.0
+
+[node name="Cell30" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 24.0
+margin_right = 336.0
+margin_bottom = 48.0
+
+[node name="Cell31" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 24.0
+margin_right = 360.0
+margin_bottom = 48.0
+
+[node name="Cell32" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 24.0
+margin_right = 384.0
+margin_bottom = 48.0
+
+[node name="Cell33" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 24.0
+margin_bottom = 72.0
+
+[node name="Cell34" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 72.0
+
+[node name="Cell35" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 72.0
+margin_bottom = 72.0
+
+[node name="Cell36" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 72.0
+
+[node name="Cell37" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 120.0
+margin_bottom = 72.0
+
+[node name="Cell38" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 48.0
+margin_right = 144.0
+margin_bottom = 72.0
+disabled = true
+text = "1"
+
+[node name="Cell39" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 48.0
+margin_right = 168.0
+margin_bottom = 72.0
+disabled = true
+text = "2"
+
+[node name="Cell40" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 48.0
+margin_right = 192.0
+margin_bottom = 72.0
+text = "P"
+
+[node name="Cell41" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 48.0
+margin_right = 216.0
+margin_bottom = 72.0
+
+[node name="Cell42" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 72.0
+
+[node name="Cell43" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 48.0
+margin_right = 264.0
+margin_bottom = 72.0
+
+[node name="Cell44" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 48.0
+margin_right = 288.0
+margin_bottom = 72.0
+
+[node name="Cell45" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 48.0
+margin_right = 312.0
+margin_bottom = 72.0
+
+[node name="Cell46" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 48.0
+margin_right = 336.0
+margin_bottom = 72.0
+
+[node name="Cell47" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 48.0
+margin_right = 360.0
+margin_bottom = 72.0
+
+[node name="Cell48" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 48.0
+margin_right = 384.0
+margin_bottom = 72.0
+
+[node name="Cell49" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 24.0
+margin_bottom = 96.0
+
+[node name="Cell50" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 48.0
+margin_bottom = 96.0
+
+[node name="Cell51" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 72.0
+margin_right = 72.0
+margin_bottom = 96.0
+
+[node name="Cell52" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 96.0
+margin_bottom = 96.0
+
+[node name="Cell53" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 72.0
+margin_right = 120.0
+margin_bottom = 96.0
+
+[node name="Cell54" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 72.0
+margin_right = 144.0
+margin_bottom = 96.0
+
+[node name="Cell55" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 72.0
+margin_right = 168.0
+margin_bottom = 96.0
+
+[node name="Cell56" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 72.0
+margin_right = 192.0
+margin_bottom = 96.0
+
+[node name="Cell57" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 72.0
+margin_right = 216.0
+margin_bottom = 96.0
+
+[node name="Cell58" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 72.0
+margin_right = 240.0
+margin_bottom = 96.0
+
+[node name="Cell59" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 72.0
+margin_right = 264.0
+margin_bottom = 96.0
+
+[node name="Cell60" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 72.0
+margin_right = 288.0
+margin_bottom = 96.0
+
+[node name="Cell61" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 72.0
+margin_right = 312.0
+margin_bottom = 96.0
+
+[node name="Cell62" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 72.0
+margin_right = 336.0
+margin_bottom = 96.0
+
+[node name="Cell63" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 72.0
+margin_right = 360.0
+margin_bottom = 96.0
+
+[node name="Cell64" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 72.0
+margin_right = 384.0
+margin_bottom = 96.0
+
+[node name="Cell65" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 96.0
+margin_right = 24.0
+margin_bottom = 120.0
+
+[node name="Cell66" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 96.0
+margin_right = 48.0
+margin_bottom = 120.0
+
+[node name="Cell67" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 96.0
+margin_right = 72.0
+margin_bottom = 120.0
+
+[node name="Cell68" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 96.0
+margin_right = 96.0
+margin_bottom = 120.0
+
+[node name="Cell69" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 120.0
+margin_bottom = 120.0
+
+[node name="Cell70" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 96.0
+margin_right = 144.0
+margin_bottom = 120.0
+
+[node name="Cell71" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 96.0
+margin_right = 168.0
+margin_bottom = 120.0
+
+[node name="Cell72" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 96.0
+margin_right = 192.0
+margin_bottom = 120.0
+
+[node name="Cell73" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 96.0
+margin_right = 216.0
+margin_bottom = 120.0
+
+[node name="Cell74" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 96.0
+margin_right = 240.0
+margin_bottom = 120.0
+
+[node name="Cell75" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 96.0
+margin_right = 264.0
+margin_bottom = 120.0
+
+[node name="Cell76" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 96.0
+margin_right = 288.0
+margin_bottom = 120.0
+
+[node name="Cell77" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 96.0
+margin_right = 312.0
+margin_bottom = 120.0
+
+[node name="Cell78" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 96.0
+margin_right = 336.0
+margin_bottom = 120.0
+
+[node name="Cell79" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 96.0
+margin_right = 360.0
+margin_bottom = 120.0
+
+[node name="Cell80" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 96.0
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="Cell81" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 120.0
+margin_right = 24.0
+margin_bottom = 144.0
+
+[node name="Cell82" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 120.0
+margin_right = 48.0
+margin_bottom = 144.0
+
+[node name="Cell83" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 120.0
+margin_right = 72.0
+margin_bottom = 144.0
+
+[node name="Cell84" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 120.0
+margin_right = 96.0
+margin_bottom = 144.0
+
+[node name="Cell85" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 120.0
+margin_right = 120.0
+margin_bottom = 144.0
+
+[node name="Cell86" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 144.0
+margin_bottom = 144.0
+
+[node name="Cell87" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 120.0
+margin_right = 168.0
+margin_bottom = 144.0
+
+[node name="Cell88" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 120.0
+margin_right = 192.0
+margin_bottom = 144.0
+
+[node name="Cell89" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 120.0
+margin_right = 216.0
+margin_bottom = 144.0
+
+[node name="Cell90" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 120.0
+margin_right = 240.0
+margin_bottom = 144.0
+
+[node name="Cell91" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 120.0
+margin_right = 264.0
+margin_bottom = 144.0
+
+[node name="Cell92" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 120.0
+margin_right = 288.0
+margin_bottom = 144.0
+
+[node name="Cell93" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 120.0
+margin_right = 312.0
+margin_bottom = 144.0
+
+[node name="Cell94" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 120.0
+margin_right = 336.0
+margin_bottom = 144.0
+
+[node name="Cell95" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 120.0
+margin_right = 360.0
+margin_bottom = 144.0
+
+[node name="Cell96" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 120.0
+margin_right = 384.0
+margin_bottom = 144.0
+
+[node name="Cell97" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 24.0
+margin_bottom = 168.0
+
+[node name="Cell98" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 144.0
+margin_right = 48.0
+margin_bottom = 168.0
+
+[node name="Cell99" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 144.0
+margin_right = 72.0
+margin_bottom = 168.0
+
+[node name="Cell100" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 144.0
+margin_right = 96.0
+margin_bottom = 168.0
+
+[node name="Cell101" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 144.0
+margin_right = 120.0
+margin_bottom = 168.0
+
+[node name="Cell102" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 144.0
+margin_right = 144.0
+margin_bottom = 168.0
+
+[node name="Cell103" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 144.0
+margin_right = 168.0
+margin_bottom = 168.0
+
+[node name="Cell104" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 144.0
+margin_right = 192.0
+margin_bottom = 168.0
+
+[node name="Cell105" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 144.0
+margin_right = 216.0
+margin_bottom = 168.0
+
+[node name="Cell106" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 144.0
+margin_right = 240.0
+margin_bottom = 168.0
+
+[node name="Cell107" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 144.0
+margin_right = 264.0
+margin_bottom = 168.0
+
+[node name="Cell108" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 144.0
+margin_right = 288.0
+margin_bottom = 168.0
+
+[node name="Cell109" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 144.0
+margin_right = 312.0
+margin_bottom = 168.0
+
+[node name="Cell110" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 144.0
+margin_right = 336.0
+margin_bottom = 168.0
+
+[node name="Cell111" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 144.0
+margin_right = 360.0
+margin_bottom = 168.0
+
+[node name="Cell112" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 144.0
+margin_right = 384.0
+margin_bottom = 168.0
+
+[node name="Cell113" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 168.0
+margin_right = 24.0
+margin_bottom = 192.0
+
+[node name="Cell114" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 168.0
+margin_right = 48.0
+margin_bottom = 192.0
+
+[node name="Cell115" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 168.0
+margin_right = 72.0
+margin_bottom = 192.0
+
+[node name="Cell116" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 168.0
+margin_right = 96.0
+margin_bottom = 192.0
+
+[node name="Cell117" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 168.0
+margin_right = 120.0
+margin_bottom = 192.0
+
+[node name="Cell118" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 168.0
+margin_right = 144.0
+margin_bottom = 192.0
+
+[node name="Cell119" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 168.0
+margin_right = 168.0
+margin_bottom = 192.0
+
+[node name="Cell120" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 168.0
+margin_right = 192.0
+margin_bottom = 192.0
+
+[node name="Cell121" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 168.0
+margin_right = 216.0
+margin_bottom = 192.0
+
+[node name="Cell122" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 168.0
+margin_right = 240.0
+margin_bottom = 192.0
+
+[node name="Cell123" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 168.0
+margin_right = 264.0
+margin_bottom = 192.0
+
+[node name="Cell124" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 168.0
+margin_right = 288.0
+margin_bottom = 192.0
+
+[node name="Cell125" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 168.0
+margin_right = 312.0
+margin_bottom = 192.0
+
+[node name="Cell126" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 168.0
+margin_right = 336.0
+margin_bottom = 192.0
+
+[node name="Cell127" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 168.0
+margin_right = 360.0
+margin_bottom = 192.0
+
+[node name="Cell128" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 168.0
+margin_right = 384.0
+margin_bottom = 192.0
+
+[node name="Cell129" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 192.0
+margin_right = 24.0
+margin_bottom = 216.0
+
+[node name="Cell130" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 48.0
+margin_bottom = 216.0
+
+[node name="Cell131" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 192.0
+margin_right = 72.0
+margin_bottom = 216.0
+
+[node name="Cell132" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 192.0
+margin_right = 96.0
+margin_bottom = 216.0
+
+[node name="Cell133" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 192.0
+margin_right = 120.0
+margin_bottom = 216.0
+
+[node name="Cell134" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 192.0
+margin_right = 144.0
+margin_bottom = 216.0
+
+[node name="Cell135" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 192.0
+margin_right = 168.0
+margin_bottom = 216.0
+
+[node name="Cell136" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 192.0
+margin_right = 192.0
+margin_bottom = 216.0
+
+[node name="Cell137" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 192.0
+margin_right = 216.0
+margin_bottom = 216.0
+
+[node name="Cell138" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 192.0
+margin_right = 240.0
+margin_bottom = 216.0
+
+[node name="Cell139" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 192.0
+margin_right = 264.0
+margin_bottom = 216.0
+
+[node name="Cell140" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 192.0
+margin_right = 288.0
+margin_bottom = 216.0
+
+[node name="Cell141" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 192.0
+margin_right = 312.0
+margin_bottom = 216.0
+
+[node name="Cell142" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 192.0
+margin_right = 336.0
+margin_bottom = 216.0
+
+[node name="Cell143" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 216.0
+
+[node name="Cell144" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 192.0
+margin_right = 384.0
+margin_bottom = 216.0
+
+[node name="Cell145" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 24.0
+margin_bottom = 240.0
+
+[node name="Cell146" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 216.0
+margin_right = 48.0
+margin_bottom = 240.0
+
+[node name="Cell147" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 216.0
+margin_right = 72.0
+margin_bottom = 240.0
+
+[node name="Cell148" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 216.0
+margin_right = 96.0
+margin_bottom = 240.0
+
+[node name="Cell149" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 216.0
+margin_right = 120.0
+margin_bottom = 240.0
+
+[node name="Cell150" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 216.0
+margin_right = 144.0
+margin_bottom = 240.0
+
+[node name="Cell151" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 216.0
+margin_right = 168.0
+margin_bottom = 240.0
+
+[node name="Cell152" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 216.0
+margin_right = 192.0
+margin_bottom = 240.0
+
+[node name="Cell153" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 216.0
+margin_right = 216.0
+margin_bottom = 240.0
+
+[node name="Cell154" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 216.0
+margin_right = 240.0
+margin_bottom = 240.0
+
+[node name="Cell155" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 216.0
+margin_right = 264.0
+margin_bottom = 240.0
+
+[node name="Cell156" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 216.0
+margin_right = 288.0
+margin_bottom = 240.0
+
+[node name="Cell157" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 216.0
+margin_right = 312.0
+margin_bottom = 240.0
+
+[node name="Cell158" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 216.0
+margin_right = 336.0
+margin_bottom = 240.0
+
+[node name="Cell159" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 216.0
+margin_right = 360.0
+margin_bottom = 240.0
+
+[node name="Cell160" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 216.0
+margin_right = 384.0
+margin_bottom = 240.0
+
+[node name="Cell161" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 240.0
+margin_right = 24.0
+margin_bottom = 264.0
+
+[node name="Cell162" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 240.0
+margin_right = 48.0
+margin_bottom = 264.0
+
+[node name="Cell163" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 240.0
+margin_right = 72.0
+margin_bottom = 264.0
+
+[node name="Cell164" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 240.0
+margin_right = 96.0
+margin_bottom = 264.0
+
+[node name="Cell165" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 240.0
+margin_right = 120.0
+margin_bottom = 264.0
+
+[node name="Cell166" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 240.0
+margin_right = 144.0
+margin_bottom = 264.0
+
+[node name="Cell167" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 240.0
+margin_right = 168.0
+margin_bottom = 264.0
+
+[node name="Cell168" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 240.0
+margin_right = 192.0
+margin_bottom = 264.0
+
+[node name="Cell169" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 240.0
+margin_right = 216.0
+margin_bottom = 264.0
+
+[node name="Cell170" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 240.0
+margin_right = 240.0
+margin_bottom = 264.0
+
+[node name="Cell171" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 240.0
+margin_right = 264.0
+margin_bottom = 264.0
+
+[node name="Cell172" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 240.0
+margin_right = 288.0
+margin_bottom = 264.0
+
+[node name="Cell173" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 240.0
+margin_right = 312.0
+margin_bottom = 264.0
+
+[node name="Cell174" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 240.0
+margin_right = 336.0
+margin_bottom = 264.0
+
+[node name="Cell175" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 240.0
+margin_right = 360.0
+margin_bottom = 264.0
+
+[node name="Cell176" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 240.0
+margin_right = 384.0
+margin_bottom = 264.0
+
+[node name="Cell177" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 264.0
+margin_right = 24.0
+margin_bottom = 288.0
+
+[node name="Cell178" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 264.0
+margin_right = 48.0
+margin_bottom = 288.0
+
+[node name="Cell179" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 264.0
+margin_right = 72.0
+margin_bottom = 288.0
+
+[node name="Cell180" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 264.0
+margin_right = 96.0
+margin_bottom = 288.0
+
+[node name="Cell181" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 264.0
+margin_right = 120.0
+margin_bottom = 288.0
+
+[node name="Cell182" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 264.0
+margin_right = 144.0
+margin_bottom = 288.0
+
+[node name="Cell183" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 264.0
+margin_right = 168.0
+margin_bottom = 288.0
+
+[node name="Cell184" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 264.0
+margin_right = 192.0
+margin_bottom = 288.0
+
+[node name="Cell185" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 264.0
+margin_right = 216.0
+margin_bottom = 288.0
+
+[node name="Cell186" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 264.0
+margin_right = 240.0
+margin_bottom = 288.0
+
+[node name="Cell187" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 264.0
+margin_right = 264.0
+margin_bottom = 288.0
+
+[node name="Cell188" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 264.0
+margin_right = 288.0
+margin_bottom = 288.0
+
+[node name="Cell189" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 264.0
+margin_right = 312.0
+margin_bottom = 288.0
+
+[node name="Cell190" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 264.0
+margin_right = 336.0
+margin_bottom = 288.0
+
+[node name="Cell191" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 264.0
+margin_right = 360.0
+margin_bottom = 288.0
+
+[node name="Cell192" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 264.0
+margin_right = 384.0
+margin_bottom = 288.0
+
+[node name="Cell193" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 288.0
+margin_right = 24.0
+margin_bottom = 312.0
+
+[node name="Cell194" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 288.0
+margin_right = 48.0
+margin_bottom = 312.0
+
+[node name="Cell195" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 288.0
+margin_right = 72.0
+margin_bottom = 312.0
+
+[node name="Cell196" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 288.0
+margin_right = 96.0
+margin_bottom = 312.0
+
+[node name="Cell197" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 288.0
+margin_right = 120.0
+margin_bottom = 312.0
+
+[node name="Cell198" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 288.0
+margin_right = 144.0
+margin_bottom = 312.0
+
+[node name="Cell199" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 288.0
+margin_right = 168.0
+margin_bottom = 312.0
+
+[node name="Cell200" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 288.0
+margin_right = 192.0
+margin_bottom = 312.0
+
+[node name="Cell201" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 288.0
+margin_right = 216.0
+margin_bottom = 312.0
+
+[node name="Cell202" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 288.0
+margin_right = 240.0
+margin_bottom = 312.0
+
+[node name="Cell203" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 288.0
+margin_right = 264.0
+margin_bottom = 312.0
+
+[node name="Cell204" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 288.0
+margin_right = 288.0
+margin_bottom = 312.0
+
+[node name="Cell205" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 288.0
+margin_right = 312.0
+margin_bottom = 312.0
+
+[node name="Cell206" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 288.0
+margin_right = 336.0
+margin_bottom = 312.0
+
+[node name="Cell207" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 288.0
+margin_right = 360.0
+margin_bottom = 312.0
+
+[node name="Cell208" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 288.0
+margin_right = 384.0
+margin_bottom = 312.0
+
+[node name="Cell209" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 312.0
+margin_right = 24.0
+margin_bottom = 336.0
+
+[node name="Cell210" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 312.0
+margin_right = 48.0
+margin_bottom = 336.0
+
+[node name="Cell211" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 312.0
+margin_right = 72.0
+margin_bottom = 336.0
+
+[node name="Cell212" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 312.0
+margin_right = 96.0
+margin_bottom = 336.0
+
+[node name="Cell213" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 312.0
+margin_right = 120.0
+margin_bottom = 336.0
+
+[node name="Cell214" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 312.0
+margin_right = 144.0
+margin_bottom = 336.0
+
+[node name="Cell215" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 312.0
+margin_right = 168.0
+margin_bottom = 336.0
+
+[node name="Cell216" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 312.0
+margin_right = 192.0
+margin_bottom = 336.0
+
+[node name="Cell217" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 312.0
+margin_right = 216.0
+margin_bottom = 336.0
+
+[node name="Cell218" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 312.0
+margin_right = 240.0
+margin_bottom = 336.0
+
+[node name="Cell219" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 312.0
+margin_right = 264.0
+margin_bottom = 336.0
+
+[node name="Cell220" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 312.0
+margin_right = 288.0
+margin_bottom = 336.0
+
+[node name="Cell221" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 312.0
+margin_right = 312.0
+margin_bottom = 336.0
+
+[node name="Cell222" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 312.0
+margin_right = 336.0
+margin_bottom = 336.0
+
+[node name="Cell223" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 312.0
+margin_right = 360.0
+margin_bottom = 336.0
+
+[node name="Cell224" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 312.0
+margin_right = 384.0
+margin_bottom = 336.0
+
+[node name="Cell225" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 336.0
+margin_right = 24.0
+margin_bottom = 360.0
+
+[node name="Cell226" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 336.0
+margin_right = 48.0
+margin_bottom = 360.0
+
+[node name="Cell227" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 336.0
+margin_right = 72.0
+margin_bottom = 360.0
+
+[node name="Cell228" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 336.0
+margin_right = 96.0
+margin_bottom = 360.0
+
+[node name="Cell229" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 336.0
+margin_right = 120.0
+margin_bottom = 360.0
+
+[node name="Cell230" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 336.0
+margin_right = 144.0
+margin_bottom = 360.0
+
+[node name="Cell231" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 336.0
+margin_right = 168.0
+margin_bottom = 360.0
+
+[node name="Cell232" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 336.0
+margin_right = 192.0
+margin_bottom = 360.0
+
+[node name="Cell233" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 336.0
+margin_right = 216.0
+margin_bottom = 360.0
+
+[node name="Cell234" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 336.0
+margin_right = 240.0
+margin_bottom = 360.0
+
+[node name="Cell235" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 336.0
+margin_right = 264.0
+margin_bottom = 360.0
+
+[node name="Cell236" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 336.0
+margin_right = 288.0
+margin_bottom = 360.0
+
+[node name="Cell237" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 336.0
+margin_right = 312.0
+margin_bottom = 360.0
+
+[node name="Cell238" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 336.0
+margin_right = 336.0
+margin_bottom = 360.0
+
+[node name="Cell239" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 336.0
+margin_right = 360.0
+margin_bottom = 360.0
+
+[node name="Cell240" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 336.0
+margin_right = 384.0
+margin_bottom = 360.0
+
+[node name="Cell241" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 360.0
+margin_right = 24.0
+margin_bottom = 384.0
+
+[node name="Cell242" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 360.0
+margin_right = 48.0
+margin_bottom = 384.0
+
+[node name="Cell243" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 360.0
+margin_right = 72.0
+margin_bottom = 384.0
+
+[node name="Cell244" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 360.0
+margin_right = 96.0
+margin_bottom = 384.0
+
+[node name="Cell245" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 360.0
+margin_right = 120.0
+margin_bottom = 384.0
+
+[node name="Cell246" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 360.0
+margin_right = 144.0
+margin_bottom = 384.0
+
+[node name="Cell247" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 360.0
+margin_right = 168.0
+margin_bottom = 384.0
+
+[node name="Cell248" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 360.0
+margin_right = 192.0
+margin_bottom = 384.0
+
+[node name="Cell249" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 360.0
+margin_right = 216.0
+margin_bottom = 384.0
+
+[node name="Cell250" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 360.0
+margin_right = 240.0
+margin_bottom = 384.0
+
+[node name="Cell251" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 360.0
+margin_right = 264.0
+margin_bottom = 384.0
+
+[node name="Cell252" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 360.0
+margin_right = 288.0
+margin_bottom = 384.0
+
+[node name="Cell253" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 360.0
+margin_right = 312.0
+margin_bottom = 384.0
+
+[node name="Cell254" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 360.0
+margin_right = 336.0
+margin_bottom = 384.0
+
+[node name="Cell255" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 360.0
+margin_right = 360.0
+margin_bottom = 384.0
+
+[node name="Cell256" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 360.0
+margin_right = 384.0
+margin_bottom = 384.0
+
+[node name="Cell257" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 384.0
+margin_right = 24.0
+margin_bottom = 408.0
+
+[node name="Cell258" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 384.0
+margin_right = 48.0
+margin_bottom = 408.0
+
+[node name="Cell259" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 384.0
+margin_right = 72.0
+margin_bottom = 408.0
+
+[node name="Cell260" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 384.0
+margin_right = 96.0
+margin_bottom = 408.0
+
+[node name="Cell261" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 384.0
+margin_right = 120.0
+margin_bottom = 408.0
+
+[node name="Cell262" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 384.0
+margin_right = 144.0
+margin_bottom = 408.0
+
+[node name="Cell263" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 384.0
+margin_right = 168.0
+margin_bottom = 408.0
+
+[node name="Cell264" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 384.0
+margin_right = 192.0
+margin_bottom = 408.0
+
+[node name="Cell265" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 384.0
+margin_right = 216.0
+margin_bottom = 408.0
+
+[node name="Cell266" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 384.0
+margin_right = 240.0
+margin_bottom = 408.0
+
+[node name="Cell267" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 384.0
+margin_right = 264.0
+margin_bottom = 408.0
+
+[node name="Cell268" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 384.0
+margin_right = 288.0
+margin_bottom = 408.0
+
+[node name="Cell269" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 384.0
+margin_right = 312.0
+margin_bottom = 408.0
+
+[node name="Cell270" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 384.0
+margin_right = 336.0
+margin_bottom = 408.0
+
+[node name="Cell271" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 384.0
+margin_right = 360.0
+margin_bottom = 408.0
+
+[node name="Cell272" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 384.0
+margin_right = 384.0
+margin_bottom = 408.0
+
+[node name="Cell273" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 408.0
+margin_right = 24.0
+margin_bottom = 432.0
+
+[node name="Cell274" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 408.0
+margin_right = 48.0
+margin_bottom = 432.0
+
+[node name="Cell275" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 408.0
+margin_right = 72.0
+margin_bottom = 432.0
+
+[node name="Cell276" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 408.0
+margin_right = 96.0
+margin_bottom = 432.0
+
+[node name="Cell277" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 408.0
+margin_right = 120.0
+margin_bottom = 432.0
+
+[node name="Cell278" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 408.0
+margin_right = 144.0
+margin_bottom = 432.0
+
+[node name="Cell279" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 408.0
+margin_right = 168.0
+margin_bottom = 432.0
+
+[node name="Cell280" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 408.0
+margin_right = 192.0
+margin_bottom = 432.0
+
+[node name="Cell281" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 408.0
+margin_right = 216.0
+margin_bottom = 432.0
+
+[node name="Cell282" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 408.0
+margin_right = 240.0
+margin_bottom = 432.0
+
+[node name="Cell283" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 408.0
+margin_right = 264.0
+margin_bottom = 432.0
+
+[node name="Cell284" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 408.0
+margin_right = 288.0
+margin_bottom = 432.0
+
+[node name="Cell285" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 408.0
+margin_right = 312.0
+margin_bottom = 432.0
+
+[node name="Cell286" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 408.0
+margin_right = 336.0
+margin_bottom = 432.0
+
+[node name="Cell287" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 408.0
+margin_right = 360.0
+margin_bottom = 432.0
+
+[node name="Cell288" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 408.0
+margin_right = 384.0
+margin_bottom = 432.0
+
+[node name="Cell289" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 432.0
+margin_right = 24.0
+margin_bottom = 456.0
+
+[node name="Cell290" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 432.0
+margin_right = 48.0
+margin_bottom = 456.0
+
+[node name="Cell291" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 432.0
+margin_right = 72.0
+margin_bottom = 456.0
+
+[node name="Cell292" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 432.0
+margin_right = 96.0
+margin_bottom = 456.0
+
+[node name="Cell293" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 432.0
+margin_right = 120.0
+margin_bottom = 456.0
+
+[node name="Cell294" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 432.0
+margin_right = 144.0
+margin_bottom = 456.0
+
+[node name="Cell295" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 432.0
+margin_right = 168.0
+margin_bottom = 456.0
+
+[node name="Cell296" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 432.0
+margin_right = 192.0
+margin_bottom = 456.0
+
+[node name="Cell297" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 432.0
+margin_right = 216.0
+margin_bottom = 456.0
+
+[node name="Cell298" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 432.0
+margin_right = 240.0
+margin_bottom = 456.0
+
+[node name="Cell299" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 432.0
+margin_right = 264.0
+margin_bottom = 456.0
+
+[node name="Cell300" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 432.0
+margin_right = 288.0
+margin_bottom = 456.0
+
+[node name="Cell301" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 432.0
+margin_right = 312.0
+margin_bottom = 456.0
+
+[node name="Cell302" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 432.0
+margin_right = 336.0
+margin_bottom = 456.0
+
+[node name="Cell303" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 432.0
+margin_right = 360.0
+margin_bottom = 456.0
+
+[node name="Cell304" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 432.0
+margin_right = 384.0
+margin_bottom = 456.0
+
+[node name="Cell305" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 456.0
+margin_right = 24.0
+margin_bottom = 480.0
+
+[node name="Cell306" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 456.0
+margin_right = 48.0
+margin_bottom = 480.0
+
+[node name="Cell307" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 456.0
+margin_right = 72.0
+margin_bottom = 480.0
+
+[node name="Cell308" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_top = 456.0
+margin_right = 96.0
+margin_bottom = 480.0
+
+[node name="Cell309" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 456.0
+margin_right = 120.0
+margin_bottom = 480.0
+
+[node name="Cell310" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 456.0
+margin_right = 144.0
+margin_bottom = 480.0
+
+[node name="Cell311" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 456.0
+margin_right = 168.0
+margin_bottom = 480.0
+
+[node name="Cell312" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = 456.0
+margin_right = 192.0
+margin_bottom = 480.0
+
+[node name="Cell313" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_top = 456.0
+margin_right = 216.0
+margin_bottom = 480.0
+
+[node name="Cell314" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 456.0
+margin_right = 240.0
+margin_bottom = 480.0
+
+[node name="Cell315" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 456.0
+margin_right = 264.0
+margin_bottom = 480.0
+
+[node name="Cell316" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_top = 456.0
+margin_right = 288.0
+margin_bottom = 480.0
+
+[node name="Cell317" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 288.0
+margin_top = 456.0
+margin_right = 312.0
+margin_bottom = 480.0
+
+[node name="Cell318" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 456.0
+margin_right = 336.0
+margin_bottom = 480.0
+
+[node name="Cell319" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 456.0
+margin_right = 360.0
+margin_bottom = 480.0
+
+[node name="Cell320" parent="CenterContainer/GameUIRows/MinefieldContainer/Minefield" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 360.0
+margin_top = 456.0
+margin_right = 384.0
+margin_bottom = 480.0
+
+[node name="BottomHud" type="HBoxContainer" parent="CenterContainer/GameUIRows"]
+margin_top = 584.0
+margin_right = 384.0
+margin_bottom = 604.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="Button" parent="CenterContainer/GameUIRows/BottomHud"]
+margin_left = 3.0
+margin_right = 143.0
+margin_bottom = 20.0
+text = "Reset this Minefield"
+
+[node name="RestartButton" type="Button" parent="CenterContainer/GameUIRows/BottomHud"]
+margin_left = 147.0
+margin_right = 278.0
+margin_bottom = 20.0
+text = "New Random Seed"
+
+[node name="MenuButton" type="Button" parent="CenterContainer/GameUIRows/BottomHud"]
+margin_left = 282.0
+margin_right = 381.0
+margin_bottom = 20.0
+text = "Back to Menu"
+
+[node name="Game" type="CanvasLayer" parent="."]
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="CenterContainer/GameUIRows/BottomHud/ResetButton" to="Game" method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="CenterContainer/GameUIRows/BottomHud/RestartButton" to="Game" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/GameUIRows/BottomHud/MenuButton" to="Game" method="_on_MenuButton_pressed"]
