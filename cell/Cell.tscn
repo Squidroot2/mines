@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://cell/Cell.gd" type="Script" id=1]
+[ext_resource path="res://cell/Resources/Cell.theme" type="Theme" id=2]
+
+[node name="Cell" type="Button"]
+anchor_right = 0.59082
+anchor_bottom = 1.0
+margin_right = -692.25
+margin_bottom = -736.0
+rect_min_size = Vector2( 24, 24 )
+theme = ExtResource( 2 )
+action_mode = 0
+expand_icon = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="." to="." method="_on_Cell_pressed"]

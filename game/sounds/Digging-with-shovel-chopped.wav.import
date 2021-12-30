@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Digging-with-shovel-chopped.wav-5e631d761ed2d9b006cb7693d35bccba.sample"
+
+[deps]
+
+source_file="res://game/sounds/Digging-with-shovel-chopped.wav"
+dest_files=[ "res://.import/Digging-with-shovel-chopped.wav-5e631d761ed2d9b006cb7693d35bccba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

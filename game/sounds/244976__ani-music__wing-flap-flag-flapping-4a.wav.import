@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/244976__ani-music__wing-flap-flag-flapping-4a.wav-4416da7839a1e24a0ca575bf789cdc36.sample"
+
+[deps]
+
+source_file="res://game/sounds/244976__ani-music__wing-flap-flag-flapping-4a.wav"
+dest_files=[ "res://.import/244976__ani-music__wing-flap-flag-flapping-4a.wav-4416da7839a1e24a0ca575bf789cdc36.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
