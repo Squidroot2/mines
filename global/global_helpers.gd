@@ -24,7 +24,7 @@ func generate_random_string(max_size: int, min_size: int, include_symbols=false)
 func string_to_seed(from: String) -> int:
 	var bytes: PoolByteArray = from.sha1_buffer()
 	bytes.resize(8)
-	var out: int
+	var out: int = 0
 	out += bytes[0]
 	out += bytes[1]*256
 	out += bytes[2]*65536
